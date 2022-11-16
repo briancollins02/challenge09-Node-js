@@ -1,30 +1,30 @@
-    # This is Loser town
+# This is Loser town
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]](https://opensource.org/licenses/MIT)
 
-    ## Description
-    thndbad
+## Description
+thndbad
 
-    ## Table of Contents
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Tests](#tests)
-    - [Questions](#questions)
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Tests](#tests)
+- [Questions](#questions)
 
-    ## Installation
-    f dadkg N/A
+## Installation
+f dadkg N/A
 
-    ## Usage
-    no
+## Usage
+no
 
-    ## License
-    This app was created under the MIT license.
+## License
+This app was created under the MIT license.
 
-    ## Tests
-    dbkadh
+## Tests
+dbkadh
 
-    ## Questions
-    Follow me on GitHub: [webhd](https://github.com/webhd)
-    <br />
-    Contact me at no
+## Questions
+Follow me on GitHub: [webhd](https://github.com/webhd)
+<br />
+Contact me at no
