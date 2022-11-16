@@ -1,19 +1,14 @@
 {
-  "name": "challenge09-node",
+  "name": "static-site",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/briancollins02/challenge09-Node-js.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/briancollins02/challenge09-Node-js/issues"
-  },
-  "homepage": "https://github.com/briancollins02/challenge09-Node-js#readme"
+  "dependencies": {
+    "inquirer": "8.2.4"
+  }
 }
