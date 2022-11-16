@@ -1,6 +1,8 @@
 // TODO: Include packages needed for this application
 // ask user questions
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown');
+const util = require('util');
 // interact with file system
 const fs = require('fs');
 
@@ -8,90 +10,69 @@ const fs = require('fs');
 
 
 // TODO: Create an array of questions for user input
-const questions = [
-    {
-        type: 'input',
-        message: 'What is the title of your project?',
-        name: 'title',
-    },
-    {
-        type: 'input',
-        message: 'Give a brief description of the project',
-        name: 'Description',
-    },
-    {
-        type: 'input',
-        message: 'How is the project installed?',
-        name: 'Installation',
-    },
-    {
-        type: 'input',
-        message: 'How is this project operated?',
-        name: 'Usage',
-    },
-    {
-        type: 'list',
-        message: 'Pick a license for your project',
-        name: 'License',
-        choices: ['MIT','Other License', 'Nope']
-    },
-    {
-        type: 'input',
-        message: 'This is the one about tests which am unsure what that is',
-        name: 'Tests',
-    },
-    {
-        type: 'input',
-        message: 'what is your GitHub user-name?',
-        name: 'Git-Hub',
-    },
-    {
-        type: 'input',
-        message: 'what is your e-mail?',
-        name: 'e-mail',
-    },
-    {
-        type: 'input',
-        message: 'Give a brief description of the project',
-        name: 'Description',
-    },
-];
+function userPrompt() {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What is the title of your project?',
+            name: 'title',
+        },
+        {
+            type: 'input',
+            message: 'Give a brief description of the project, including what it accomplishes for the user:',
+            name: 'description',
+        },
+        {
+            type: 'input',
+            message: 'How is the project installed? If no there is no installation required, write "N/A".',
+            name: 'installation',
+        },
+        {
+            type: 'input',
+            message: 'Please include information about project operation:',
+            name: 'usage',
+        },
+        {
+            type: 'list',
+            message: 'Pick a license for your project:',
+            name: 'license',
+            choices: ['MIT','GPL_v2', 'Apache_2.0']
+        },
+        {
+            type: 'input',
+            message: 'Please describe this applications tests, and how to use them',
+            name: 'tests',
+        },
+        {
+            type: 'input',
+            message: 'Would you like to include your GitHub user-name?',
+            name: 'gitHub',
+        },
+        {
+            type: 'input',
+            message: 'Would you like to include your e-mail?',
+            name: 'eMail',
+        },
+    ])
+};
 
-
-inquirer
-  .prompt(questions)
-  .then((data) => {
-    const filename = `${data.title.toLowerCase().split(' ').join('')}.txt`;
-    
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-    err ? console.log(err) : console.log('Success!')
-    );
-  });
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeToFile = util.promisify(fs.writeFile);
+
+
 
 // TODO: Create a function to initialize app
-function init() {}
-
+async function init() {
+    try {
+        const data = await userPrompt()
+        const generateContent = generateMarkdown(data);
+        const filename = `${data.title.toLowerCase().split(' ').join('')}.md`;
+        writeToFile(`${filename}`, generateContent, 'utf8')
+        console.log('File Created!')
+    } catch (err) {
+        console.log(err);
+    }
+}
 // Function call to initialize app
-init();
+init()
 
-// .prompt([
-//     {
-//       type: 'input',
-//       message: 'What is your user name?',
-//       name: 'name',
-//     },
-//     {
-//       type: 'input',
-//       message: 'What Languages do you know?',
-//       name: 'languages',
-//     },
-//     {
-//       type: 'rawlist',
-//       message: 'What is your preferred method of communication?',
-//       name: 'contact',
-//       choices: ['email', 'phone', 'telekenesis']
-//     },
-
-// const template = `${title}`
