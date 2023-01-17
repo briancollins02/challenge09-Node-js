@@ -28,3 +28,5 @@
   Follow me on GitHub: [briancollins02 ](https://github.com/briancollins02 )
   
   Contact me at brianmcollins0@gmail.com
+  
+  [Walkthrough video](https://youtu.be/pm-yieWd_kQ)
